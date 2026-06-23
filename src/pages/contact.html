@@ -14,37 +14,62 @@
         <div class="col-lg-6 py-6 px-5">
             <h1 class="display-5 mb-4">Hubungi Unit Teknologi Informasi</h1>
             <h4 class="lh-base mb-4">Silakan hubungi kami melalui form di bawah ini atau langsung datang ke kantor Unit Teknologi Informasi.</h4>
-            <form>
+            <form id="contactForm" action="https://script.google.com/macros/s/AKfycbyvA2Gf7qex2_-uBl_bV8-HneXpA7umGxBsoBIqLMrgAdoCI8qevW-qg2ELH-Gi9bo3iw/exec" method="POST" target="hidden_iframe">
                 <div class="row g-3">
                     <div class="col-6">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="form-floating-1" placeholder="Nama Lengkap">
-                            <label for="form-floating-1">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap" required>
+                            <label for="nama">Nama Lengkap</label>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="form-floating-2" placeholder="nama@email.com">
-                            <label for="form-floating-2">Alamat Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="nama@email.com" required>
+                            <label for="email">Alamat Email</label>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="form-floating-3" placeholder="Subjek">
-                            <label for="form-floating-3">Subjek</label>
+                            <input type="text" class="form-control" id="subjek" name="subjek" placeholder="Subjek" required>
+                            <label for="subjek">Subjek</label>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="Pesan" id="form-floating-4" style="height: 150px"></textarea>
-                            <label for="form-floating-4">Pesan</label>
+                            <textarea class="form-control" placeholder="Pesan" id="pesan" name="pesan" style="height: 150px" required></textarea>
+                            <label for="pesan">Pesan</label>
                           </div>
                     </div>
                     <div class="col-12">
                         <button class="btn btn-primary w-100 py-3" type="submit">Kirim Pesan</button>
                     </div>
+                    <div class="col-12">
+                        <div id="formStatus" class="text-center"></div>
+                    </div>
                 </div>
             </form>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
+            <script>
+            var formSubmitted = false;
+            document.getElementById('hidden_iframe').onload = function() {
+                if (formSubmitted) {
+                    formSubmitted = false;
+                    var btn = document.querySelector('#contactForm button[type="submit"]');
+                    var status = document.getElementById('formStatus');
+                    status.innerHTML = '<span class="text-success fw-bold">Pesan berhasil dikirim!</span>';
+                    document.getElementById('contactForm').reset();
+                    btn.disabled = false;
+                    btn.textContent = 'Kirim Pesan';
+                }
+            };
+            document.getElementById('contactForm').addEventListener('submit', function() {
+                var btn = this.querySelector('button[type="submit"]');
+                document.getElementById('formStatus').textContent = '';
+                btn.disabled = true;
+                btn.textContent = 'Mengirim...';
+                formSubmitted = true;
+            });
+            </script>
         </div>
         <div class="col-lg-6" style="min-height: 400px;">
             <div class="position-relative h-100">
