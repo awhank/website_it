@@ -1,0 +1,22 @@
+DESIGN SPECIFICATIONS (UI/UX)
+--------------------------------------------------------------------------------
+Color Palette (CSS Variables)
+- Brand Colors (Used as Accents, not fills):
+    * Primary   : #2E9B6B (Main Accent)
+    * Secondary : #7CB300 (Sub Accent)
+    * Tertiary  : #2BAEAD (Tertiary Accent)
+    * Accent    : #4A9E4E (Highlight Accent)
+- Text Colors:
+    * Body Text : #576765 (Used for all body paragraphs)
+    * Heading   : #1E3328 (Used for all titles/headings)
+- Backgrounds:
+    * Page BG   : #F7FAF8 (Off-White)
+    * Section BG: #FFFFFF (Pure White)
+    * Tints     : Primary-BG (#EBF6F1), Secondary-BG (#F2F7E0), Tertiary-BG (#EAF6F5)
+- Neutrals:
+    * White     : #FFFFFF
+    * Border    : #DDE8E3 (For cards and dividers)
+
+Typography & Scale
+- Heading Font: 'Nunito', sans-serif (Weight: 800/ExtraBold)
+- Body Font: 'Segoe UI', system-ui, -apple-system, sans-serif (Weight: 400)
